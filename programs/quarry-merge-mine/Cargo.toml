@@ -1,0 +1,30 @@
+[package]
+name = "quarry-merge-mine"
+version = "1.11.1"
+description = "Mines multiple quarries at the same time"
+homepage = "https://quarry.so"
+repository = "https://github.com/QuarryProtocol/quarry"
+authors = ["Larry Jarry <larry@quarry.so>"]
+license = "AGPL-3.0"
+keywords = ["solana", "quarry"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "quarry_merge_mine"
+
+[features]
+no-entrypoint = []
+no-idl = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = { git = "https://github.com/project-serum/anchor", tag = "v0.17.0", version = "0.17.0", package = "anchor-lang" }
+anchor-spl = { git = "https://github.com/project-serum/anchor", tag = "v0.17.0", version = "0.17.0", package = "anchor-spl" }
+quarry-mine = { path = "../quarry-mine", features = ["cpi"], version = "^1.11" }
+quarry-mint-wrapper = { path = "../quarry-mint-wrapper", features = [
+    "cpi"
+], version = "^1.11" }
+num-traits = "0.2"
+vipers = "1.5.5"

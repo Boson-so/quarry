@@ -1,0 +1,25 @@
+[package]
+name = "quarry-redeemer"
+version = "1.11.1"
+description = "Redeems one token for another"
+edition = "2021"
+homepage = "https://quarry.so"
+repository = "https://github.com/QuarryProtocol/quarry"
+authors = ["Quarry Protocol <team@quarry.so>"]
+license = "AGPL-3.0"
+keywords = ["solana", "quarry"]
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "quarry_redeemer"
+
+[features]
+no-entrypoint = []
+no-idl = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = { git = "https://github.com/project-serum/anchor", tag = "v0.17.0", version = "0.17.0", package = "anchor-lang" }
+anchor-spl = { git = "https://github.com/project-serum/anchor", tag = "v0.17.0", version = "0.17.0", package = "anchor-spl" }
+vipers = "1.5.5"

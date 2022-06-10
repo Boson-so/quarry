@@ -1,0 +1,25 @@
+[package]
+name = "quarry-registry"
+version = "1.11.1"
+description = "Registry of all quarries associated with a rewarder."
+edition = "2021"
+homepage = "https://quarry.so"
+repository = "https://github.com/QuarryProtocol/quarry"
+authors = ["Quarry Protocol <team@quarry.so>"]
+license = "AGPL-3.0"
+keywords = ["solana", "quarry"]
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "quarry_registry"
+
+[features]
+no-entrypoint = []
+no-idl = []
+cpi = ["no-entrypoint"]
+default = []
+
+[dependencies]
+anchor-lang = { git = "https://github.com/project-serum/anchor", tag = "v0.17.0", version = "0.17.0", package = "anchor-lang" }
+quarry-mine = { version = "^1.11", path = "../quarry-mine", features = ["cpi"] }
+vipers = "1.5.5"
